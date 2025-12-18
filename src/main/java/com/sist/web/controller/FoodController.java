@@ -35,12 +35,23 @@ public class FoodController {
 		
 		model.addAttribute("list", list);
 		model.addAttribute("curpage", curpage);
-		model.addAttribute("totalapge", totalpage);
+		model.addAttribute("totalpage", totalpage);
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		// include
 		model.addAttribute("main_html", "food/list");		
 		return "main/main";
 		
+	}
+	/*
+	 *     SpringBoot (SpringFramework)
+	 *     브라우저 <=> Controller <==> Service <=> Mapper <=> 오라클
+	 */
+	@GetMapping("/food/detail")
+	public String food_detail(@RequestParam("fno") int fno, Model model) {
+		FoodVO vo = fService.foodDetailDate(fno);
+		model.addAttribute("vo", vo);
+		model.addAttribute("main_html", "food/detail");
+		return "main/main";
 	}
 }

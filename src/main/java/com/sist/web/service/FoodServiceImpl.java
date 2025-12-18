@@ -27,5 +27,12 @@ public class FoodServiceImpl implements FoodService{
 	public List<FoodVO> foodTop10Data() {
 		// TODO Auto-generated method stub
 		return mapper.foodTop10Data();
+	}
+
+	@Override
+	public FoodVO foodDetailDate(int fno) {
+		// TODO Auto-generated method stub
+		mapper.foodHitIncrement(fno);
+		return mapper.foodDetailDate(fno);
 	}	
 }
